@@ -14,7 +14,7 @@ Y_START = 140
 X_STOP = 1060
 Y_STOP = 840
 COMPRESSION_SIZE = 100
-SPREAD = 3
+SPREAD = 6
 
 class Node():
     """A node class for A* Pathfinding"""
@@ -194,7 +194,6 @@ def pathFindInImage(im_rgb):
             myMap[MEER_X][MEER_Y + i] = 0
         if MEER_Y - i >= 0:
             myMap[MEER_X][MEER_Y - i] = 0
-
 
     # PATHFIND
     path = astar(myMap, (MEER_X,MEER_Y), (GOAL_X, GOAL_Y))
