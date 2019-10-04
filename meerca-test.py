@@ -233,24 +233,25 @@ def pathFindInImage(im_rgb):
 def main():
 
     for i in range(3):
-        print(i)
-        time.sleep(0.5)
+        print(i + 1)
+        time.sleep(1)
 
     counter = 0
+    save_imgs = False
     while True:
         # Save part of the screen where game is
         im=ImageGrab.grab(bbox=(X_START,Y_START,X_STOP,Y_STOP)).convert('RGB')
         new_im = im.resize((COMPRESSION_SIZE,COMPRESSION_SIZE),Image.ANTIALIAS)
 
-        # new_im.save("imgs/new{}.png".format(counter),optimize=True,quality=95)
 
         val = pathFindInImage(np.array(new_im))
         if (val != "OK"): 
             print(val)
 
-        # time.sleep(1)
-
-        # counter += 1
+        if (save_imgs): 
+            new_im.save("imgs/new{}.png".format(counter),optimize=True,quality=95)
+            time.sleep(1)
+            counter += 1
 
 if __name__ == '__main__':
     main()
